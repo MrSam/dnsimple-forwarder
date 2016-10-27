@@ -25,7 +25,7 @@ Get an overview of configured forwards for a domain
 ```
 $api_token = "<your token>";
 $account_id = 1234;
-$domain = "prezlymailtest.com";
+$domain = "exampledomain.com";
 
 $fw = new DNSSimple_Forwarder($api_token;
 $domains = $fw->getDomains($account_id);
@@ -37,7 +37,7 @@ Create a new forward in a domain
 ```
 $api_token = "<your token>";
 $account_id = 1234;
-$domain = "prezlymailtest.com";
+$domain = "exampledomain.com";
 $from = "sam";
 $to = "sam@acme.com";
 
