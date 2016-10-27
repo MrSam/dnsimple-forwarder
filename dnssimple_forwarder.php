@@ -114,7 +114,6 @@ class DNSSimple_Forwarder {
         $ch = curl_init();
 
         $url = $this->api_url . "/" . $this->api_version . $path;
-        var_dump($url);
 
         curl_setopt($ch, CURLOPT_URL, $url);
         curl_setopt($ch, CURLOPT_VERBOSE, false); // enable this to debug
