@@ -1,0 +1,11 @@
+{
+    "name": "mrsam/dnsimple-forwarder",
+    "description": "This is a PHP class to talk to the DNSimple API.",
+    "authors": [
+        {
+            "name": "Sam Hermans",
+            "email": "sam@prezly.com"
+        }
+    ],
+    "require": {}
+}
