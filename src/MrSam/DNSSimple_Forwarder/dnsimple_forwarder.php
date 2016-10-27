@@ -4,8 +4,9 @@
  * Written by Sam Hermans, 27/10/2016
  */
 
+namespace MrSam\DNSimple_Forwarder;
 
-class DNSSimple_Forwarder {
+class DNSimple_Forwarder {
     public  $api_url      = 'https://api.dnsimple.com';
     public  $api_version  = 'v2';
     public  $http_agent   = 'DNSimple-Forwarder (https://github.com/MrSam/dnsimple-forwarder)';
@@ -14,7 +15,7 @@ class DNSSimple_Forwarder {
 
 
     /**
-     * DNSSimple_Forwarder constructor.
+     * DNSimple_Forwarder constructor.
      * For more info read https://developer.dnsimple.com/v2/
      *
      * @param $token

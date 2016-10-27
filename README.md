@@ -7,7 +7,7 @@ Use this PHP class to talk to the DNSimple API
 Get an overview of accounts (this token can access)
 
 ```
-$fw = new DNSSimple_Forwarder('<your token>');
+$fw = new DNSimple_Forwarder('<your token>');
 $accounts = $fw->getAccounts();
 var_dump($accounts);
 ```
@@ -15,7 +15,7 @@ var_dump($accounts);
 Get an overview of domains for the specified account_id
 
 ```
-$fw = new DNSSimple_Forwarder('<your token>');
+$fw = new DNSimple_Forwarder('<your token>');
 $domains = $fw->getDomains($account_id);
 var_dump($domains);
 ```
@@ -27,7 +27,7 @@ $api_token = "<your token>";
 $account_id = 1234;
 $domain = "exampledomain.com";
 
-$fw = new DNSSimple_Forwarder($api_token;
+$fw = new DNSimple_Forwarder($api_token;
 $domains = $fw->getDomains($account_id);
 var_dump($domains);
 ```
@@ -41,7 +41,7 @@ $domain = "exampledomain.com";
 $from = "sam";
 $to = "sam@acme.com";
 
-$fw = new DNSSimple_Forwarder($api_token;
+$fw = new DNSimple_Forwarder($api_token;
 $fw->addForward($account_id, $domain, $from, $to);
 
 ```
