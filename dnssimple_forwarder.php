@@ -96,8 +96,13 @@ class DNSSimple_Forwarder {
         return $res;
     }
 
-    public function addForward($account_id, $domain, $from, $to)
+    public function addForward($account_id, $domain, $from_prefix, $to)
     {
+        $vars = ['from' => $from_prefix, "to" => $to];
+
+        $res = $this->http_call ('POST', '/' . $account_id . '/domains/'. $domain . '/email_forwards', $vars);
+        var_dump($res);
+        return $res;
     }
 
 
@@ -106,21 +111,31 @@ class DNSSimple_Forwarder {
         if(!$path)
             throw new Exception('http_call() path missing.');
 
-        $url = $this->api_url . "/" . $this->api_version . $path;
-
         $ch = curl_init();
+
+        $url = $this->api_url . "/" . $this->api_version . $path;
+        var_dump($url);
 
         curl_setopt($ch, CURLOPT_URL, $url);
         curl_setopt($ch, CURLOPT_VERBOSE, false); // enable this to debug
 
-        curl_setopt($ch, CURLOPT_CUSTOMREQUEST, $method);
 
         curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, 2); // leave this on 2 to avoid man in the middle attacks
         curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, 2); // leave this on 2 to avoid man in the middle attacks
 
+        curl_setopt($ch, CURLOPT_CUSTOMREQUEST, $method);
+        $headers = ['Authorization: Bearer ' . $this->token, 'Accept: application/json'];
+
+        if($method == "POST" || $method == "PUT" || $method == "DELETE") {
+            curl_setopt($ch, CURLOPT_POST, true);
+            curl_setopt($ch, CURLOPT_POSTFIELDS, json_encode($vars));
+            $headers[] = 'Content-Length: ' . strlen(json_encode($vars));
+            $headers[] = 'Content-Type: application/json';
+        }
+
         curl_setopt($ch, CURLOPT_USERAGENT, $this->http_agent);
         curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
-        curl_setopt($ch, CURLOPT_HTTPHEADER, ['Authorization: Bearer ' . $this->token, 'Accept: application/json']);
+        curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
 
         return json_decode(curl_exec($ch), true);
     }
