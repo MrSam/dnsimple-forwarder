@@ -48,7 +48,7 @@ $fw->addForward($account_id, $domain, $from, $to);
 
 ## License
 
-ZeroSlack is licensed under the GPLv3+: http://www.gnu.org/licenses/gpl-3.0.html.
+This code is licensed under the GPLv3+: http://www.gnu.org/licenses/gpl-3.0.html.
 
 ## Legal
 
