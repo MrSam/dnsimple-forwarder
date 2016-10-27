@@ -1,6 +1,7 @@
 {
     "name": "mrsam/dnsimple-forwarder",
     "description": "This is a PHP class to talk to the DNSimple API.",
+    "license": "GPL-3.0+",
     "authors": [
         {
             "name": "Sam Hermans",
