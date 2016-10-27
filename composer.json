@@ -1,7 +1,6 @@
 {
     "name": "mrsam/dnsimple-forwarder",
     "description": "This is a PHP class to talk to the DNSimple API.",
-    "keywords": "DNSimple email forwarders",
     "license": "GPL-3.0+",
     "authors": [
         {
